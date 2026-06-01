@@ -29,28 +29,37 @@
 
 # STIG: WN11-CC-000315
 # Requirement: The Windows Installer feature "Always install with elevated privileges" must be disabled.
-# Remediation: Set AlwaysInstallElevated to 0.
-
-$registryPath = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer"
-$valueName = "AlwaysInstallElevated"
-$valueData = 0
+# Remediation: Set AlwaysInstallElevated to 0 in both HKLM and HKCU.
 
 Write-Host "Applying remediation for WN11-CC-000315..."
 
-# Create the registry path if it does not exist
-New-Item -Path $registryPath -Force | Out-Null
+$registryPaths = @(
+    "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer",
+    "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Installer"
+)
 
-# Create or update the DWORD value
-New-ItemProperty `
-    -Path $registryPath `
-    -Name $valueName `
-    -PropertyType DWord `
-    -Value $valueData `
-    -Force | Out-Null
+$valueName = "AlwaysInstallElevated"
+$valueData = 0
+
+foreach ($registryPath in $registryPaths) {
+
+    if (-not (Test-Path $registryPath)) {
+        New-Item -Path $registryPath -Force | Out-Null
+    }
+
+    New-ItemProperty `
+        -Path $registryPath `
+        -Name $valueName `
+        -PropertyType DWord `
+        -Value $valueData `
+        -Force | Out-Null
+}
 
 gpupdate /force
 
 Write-Host ""
 Write-Host "Remediation complete."
-Write-Host "Current registry setting:"
-Get-ItemProperty -Path $registryPath -Name $valueName
+Write-Host "Verification results:"
+
+Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer" -Name "AlwaysInstallElevated"
+Get-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Installer" -Name "AlwaysInstallElevated"
