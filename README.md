@@ -10,3 +10,4 @@
 | WN11-EP-000310 | [Powershell Script](./scripts/WN11-EP-000310.ps1) | [Screenshots](./assets/WN11-EP-000310/) |
 | WN11-CC-000255 | [Powershell Script](./scripts/WN11-CC-000255.ps1) | [Screenshots](./assets/WN11-CC-000255/) |
 | WN11-AU-000083 | [Powershell Script](./scripts/WN11-AU-000083.ps1) | [Screenshots](./assets/WN11-AU-000083/) |
+| WN11-CC-000068 | [Powershell Script](./scripts/WN11-CC-000068.ps1) | [Screenshots](./assets/WN11-CC-000068/) |
