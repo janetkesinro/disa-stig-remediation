@@ -12,3 +12,5 @@
 | WN11-AU-000083 | [Powershell Script](./scripts/WN11-AU-000083.ps1) | [Screenshots](./assets/WN11-AU-000083/) |
 | WN11-CC-000068 | [Powershell Script](./scripts/WN11-CC-000068.ps1) | [Screenshots](./assets/WN11-CC-000068/) |
 | WN11-CC-000290 | [Powershell Script](./scripts/WN11-CC-000290.ps1) | [Screenshots](./assets/WN11-CC-000290/) |
+| WN11-CC-000204 | [Powershell Script](./scripts/WN11-CC-000204.ps1) | [Screenshots](./assets/WN11-CC-000204/) |
+| WN11-CC-000197 | [Powershell Script](./scripts/WN11-CC-000197.ps1) | [Screenshots](./assets/WN11-CC-000197/) |
